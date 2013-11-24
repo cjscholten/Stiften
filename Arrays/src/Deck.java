@@ -20,8 +20,31 @@ public class Deck {
 	 * Vult de array met 52 kaarten: 2,3 ... ,10,V,B,K,A van klaveren, schoppen,
 	 * harten en ruiten.
 	 */
-	public void fillDeck() {
-	//Test
+	public void fillDeck() {		
+		tempArray = new Card[52];
+		for (int i = 2;i< 9;i++)
+		{			
+				tempArray[i-2] = new Card("Klaveren",i.toString());
+				tempArray[(i+13)-2] = new Card("Schoppen",i.toString());
+				tempArray[(i+26)-2] = new Card("Harten",i.toString());
+				tempArray[(i+39)-2] = new Card("Ruiten",i.toString());							
+		}
+		tempArray[9] = new Card("Klaveren","Boer");
+		tempArray[22] = new Card("Schoppen","Boer");
+		tempArray[35] = new Card("Harten","Boer");
+		tempArray[48] = new Card("Ruiten","Boer");	
+		tempArray[10] = new Card("Klaveren","Vrouw");
+		tempArray[23] = new Card("Schoppen","Vrouw");
+		tempArray[36] = new Card("Harten","Vrouw");
+		tempArray[49] = new Card("Ruiten","Vrouw");	
+		tempArray[11] = new Card("Klaveren","Koning");
+		tempArray[24] = new Card("Schoppen","Koning");
+		tempArray[37] = new Card("Harten","Koning");
+		tempArray[50] = new Card("Ruiten","Koning");	
+		tempArray[12] = new Card("Klaveren","Aas");
+		tempArray[25] = new Card("Schoppen","Aas");
+		tempArray[38] = new Card("Harten","Aas");
+		tempArray[51] = new Card("Ruiten","Aas");	
 	}
 
 	/**
@@ -35,6 +58,14 @@ public class Deck {
 	 *            Op positie
 	 */
 	public void insertAt(Card card, int index) {
+		if (index >= cardArray.size -1){
+			tempArray = new card[cardArray.size +1];
+			tempArray.toArray(cardArray);
+			tempArray[index] = card;
+			cardArray = tempArray;
+		}else {
+			cardArray[index] = card;
+		}
 	}
 
 	/**
@@ -46,6 +77,7 @@ public class Deck {
 	 * @param index
 	 */
 	public void delete(int index) {
+	
 	}
 
 	/**
